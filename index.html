@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                font-family: sans;
+            }
+            table {
+                border: 1px solid black;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            tr, td, th {
+                padding: 0.5em 0.3em;
+                border: 1px solid black;
+                text-align: center;
+            }
+            .status-passed {
+                background-color: lightgreen;
+            }
+            .status-failed {
+                background-color: indianred;
+            }
+            .status-errored {
+                background-color: sandybrown;
+            }
+            .loader {
+                height: 200px;
+                background: center no-repeat url("ajax-loader.gif");
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>Repository</th>
+                    <th>Stato</th>
+                    <th>Completato</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="loader"></div>
+        <script src="travis_dashboard.js"></script>
+    </body>
+<html>
+
