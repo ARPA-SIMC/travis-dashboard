@@ -1,4 +1,4 @@
-let REPO_URL = "https://api.github.com/orgs/ARPA-SIMC/repos?type=all";
+let REPO_URL = "https://api.github.com/orgs/ARPA-SIMC/repos";
 let TRAVIS_BASE_URL = "https://api.travis-ci.org"
 
 let images = [
@@ -15,8 +15,25 @@ images.forEach(image => {
     tr.innerHTML += `<th>${image}</th>`;
 });
 
-fetch(REPO_URL)
-    .then(resp => resp.json())
+function get_github_repos() {
+    let get_github_repos_recursive = function(repos, page){
+        return new Promise((resolve, reject) => {
+            return fetch(`${REPO_URL}?page=${page}`)
+                .then(resp => resp.json())
+                .then(json => {
+                    if (json.length) {
+                        repos = repos.concat(json);
+                        get_github_repos_recursive(repos, page+1).then(resolve);
+                    } else {
+                        resolve(repos);
+                    }
+                })
+        })
+    }
+    return get_github_repos_recursive([], 1)
+}
+
+get_github_repos()
     .then(json => {
         json.sort((a, b) => {
             let name_a = a["name"].toLowerCase();
