@@ -4,9 +4,9 @@ let TRAVIS_BASE_URL = "https://api.travis-ci.org"
 let images = [
     "centos:7",
     "centos:8",
-    "fedora:31",
     "fedora:32",
     "fedora:33",
+    "fedora:34",
     "fedora:rawhide"
 ];
 

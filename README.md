@@ -7,6 +7,6 @@ See https://arpa-simc.github.io/travis-dashboard/
 
 Author: Emanuele Di Giacomo <edigiacomo@arpae.it>
 
-Copyright (C) 2020 Arpae-SIMC
+Copyright (C) 2020-2021 Arpae-SIMC
 
 This project is released under GPLv3+
